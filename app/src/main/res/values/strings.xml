@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Student Varification</string>
+    <string name="college_name"><![CDATA[Dr. S. & S. S. Ghandhy College]]></string>
+    <string name="full_college_name"><![CDATA[Dr. S. & S. S. Ghandhy College\nof Engineering & Technology, Surat]]></string>
 </resources>
