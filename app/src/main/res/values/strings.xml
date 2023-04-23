@@ -1,5 +1,35 @@
 <resources>
+    <!-- @author KUNJ   -->
     <string name="app_name">Student Varification</string>
     <string name="college_name"><![CDATA[Dr. S. & S. S. Ghandhy College]]></string>
     <string name="full_college_name"><![CDATA[Dr. S. & S. S. Ghandhy College\nof Engineering & Technology, Surat]]></string>
+
+    <!-- @author PRANAV   -->
+    <string name="strudent_full_name">Student Full Name</string>
+    <string name="full_name">Enter your Full Name</string>
+    <string name="father_full_name">Father Full Name</string>
+    <string name="enter_father_full_name">Enter Father Full Name</string>
+    <string name="enter_whatsapp_number">Enter your Whatsapp Number</string>
+    <array name="area">
+        <item>choose</item>
+        <item>Urban</item>
+        <item>Rural</item>
+    </array>
+    <array name="admission">
+        <item>choose</item>
+        <item>Diploma</item>
+        <item>BE</item>
+        <item>Bcom</item>
+        <item>BCA</item>
+        <item>BTech</item>
+    </array>
+
+    <array name="religion">
+        <item>Hindu</item>
+        <item>Muslim</item>
+        <item>Christi</item>
+        <item>Judaism</item>
+        <item>Sikhism</item>
+        <item>Shuddhism</item>
+    </array>
 </resources>

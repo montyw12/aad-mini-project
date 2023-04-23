@@ -3,7 +3,6 @@ package com.example.studentvarification;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.WindowManager;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,9 +18,9 @@ public class SplashScreen extends AppCompatActivity {
         assert ab != null;
         ab.hide();
         new Handler().postDelayed(() -> {
-            Intent i = new Intent(SplashScreen.this, MainActivity.class);
+            Intent i = new Intent(SplashScreen.this, Notice.class);
             startActivity(i);
             finish();
-        }, 700);
+        }, 750);
     }
 }
