@@ -27,7 +27,7 @@ public class Notice extends AppCompatActivity {
             Intent i = new Intent(Notice.this, FormFillup.class);
             startActivity(i);
         } else {
-            Snackbar snackbar = Snackbar.make(layout, "Please select NOTICE checkbox", Snackbar.LENGTH_INDEFINITE);
+            Snackbar snackbar = Snackbar.make(layout, "Select notice checkbox to process next", Snackbar.LENGTH_INDEFINITE);
             snackbar.setAction("OK", new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

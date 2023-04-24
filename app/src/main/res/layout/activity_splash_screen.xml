@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
+    android:background="#fff"
     tools:context=".SplashScreen">
 
     <LinearLayout
@@ -35,6 +36,7 @@
         android:textAllCaps="false"
         android:textSize="21sp"
         android:textStyle="italic"
-        android:typeface="normal" />
+        android:typeface="normal"
+        android:textColor="#000"/>
 
 </LinearLayout>
