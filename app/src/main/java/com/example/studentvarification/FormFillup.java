@@ -3,6 +3,9 @@ package com.example.studentvarification;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
@@ -14,9 +17,10 @@ import java.util.Locale;
 
 public class FormFillup extends AppCompatActivity {
 
-    String[] spiner = {"choose", "Urban", "Rural"};
-    String[] admission = {"choose", "Diploma", "BE", "Bcom", "BCA", "BTech"};
-    String[] rel = {"choose", "Hindu", "Muslim", "Christi", "Judaism", "Sikhism", "Shuddhism"};
+    String[] spiner = {"Urban", "Rural"};
+    String[] admission = {"Diploma", "BE", "Bcom", "BCA", "BTech"};
+    String[] rel = {"Hindu", "Muslim", "Christi", "Judaism", "Sikhism", "Shuddhism"};
+    String[] genders = {"Male", "Female", "other"};
     String item = null;
 
     @Override
@@ -24,9 +28,13 @@ public class FormFillup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_fillup);
 
-        // AutoCompleteTextView autoCompleteTextView;
-        // ArrayAdapter<String> adapteritems;
-        // autoCompleteTextView = findViewById(R.id.rel);
+        ArrayAdapter<String> genderadapterItems;
+
+        AutoCompleteTextView gender_auto = findViewById(R.id.gender_auto_complete_txt);
+        AutoCompleteTextView citizen_auto = findViewById(R.id.citizen_auto_complete_txt);
+        AutoCompleteTextView admission_auto = findViewById(R.id.admission_auto_complete_txt);
+        AutoCompleteTextView religion_auto = findViewById(R.id.rel_auto_complete_txt);
+
         EditText datePickerob = findViewById(R.id.dob);
         Calendar myCalendar = Calendar.getInstance();
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -51,9 +59,49 @@ public class FormFillup extends AppCompatActivity {
                 new DatePickerDialog(FormFillup.this, date, myCalendar.get(Calendar.YEAR), myCalendar.get(Calendar.MONTH), myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         });
-        // adapteritems =new ArrayAdapter<String>(this,R.layout.list_item,rel);
-        // autoCompleteTextView.setAdapter(adapteritems);
-        // autoCompleteTextView.setThreshold(2);
-        // autoCompleteTextView.setAdapter(adapteritems);
+
+        genderadapterItems = new ArrayAdapter<String>(FormFillup.this, R.layout.list_item, genders);
+        gender_auto.setAdapter(genderadapterItems);
+        gender_auto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //item contain dropdown list data
+                item = parent.getItemAtPosition(position).toString();
+
+            }
+        });
+
+        genderadapterItems = new ArrayAdapter<String>(FormFillup.this, R.layout.list_item, spiner);
+        citizen_auto.setAdapter(genderadapterItems);
+        citizen_auto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //item contain dropdown list data
+                item = parent.getItemAtPosition(position).toString();
+
+            }
+        });
+
+        genderadapterItems = new ArrayAdapter<String>(FormFillup.this, R.layout.list_item, admission);
+        admission_auto.setAdapter(genderadapterItems);
+        admission_auto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //item contain dropdown list data
+                item = parent.getItemAtPosition(position).toString();
+
+            }
+        });
+
+        genderadapterItems = new ArrayAdapter<String>(FormFillup.this, R.layout.list_item, rel);
+        religion_auto.setAdapter(genderadapterItems);
+        religion_auto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //item contain dropdown list data
+                item = parent.getItemAtPosition(position).toString();
+
+            }
+        });
     }
 }
