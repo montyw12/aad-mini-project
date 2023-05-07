@@ -1,4 +1,4 @@
-package com.example.studentvarification;
+package com.example.studentverification;
 
 import android.os.Bundle;
 

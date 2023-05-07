@@ -1,4 +1,4 @@
-package com.example.studentvarification;
+package com.example.studentverification;
 
 import android.content.Intent;
 import android.graphics.Color;

@@ -1,4 +1,4 @@
-package com.example.studentvarification;
+package com.example.studentverification;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
@@ -6,10 +6,20 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -17,6 +27,20 @@ import java.util.Locale;
 
 public class FormFillup extends AppCompatActivity {
 
+
+    /*
+    * References for inserting data in database
+    */
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    TextInputEditText idStrudentName, idFatherName, idMotherName;
+    Button idSubmit;
+    String currentTime;
+
+    /*
+    * Variable for dropdowns and datepicker
+    */
     String[] spiner = {"Urban", "Rural"};
     String[] admission = {"Diploma", "BE", "Bcom", "BCA", "BTech"};
     String[] rel = {"Hindu", "Muslim", "Christi", "Judaism", "Sikhism", "Shuddhism"};
@@ -28,14 +52,18 @@ public class FormFillup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_fillup);
 
+        /*
+        *  Code to set idGender, idCitizen, idCategoryOfAdmission, idReligion dorpdowns,
+        *  and idDateOfBirth datpicker.
+        */
         ArrayAdapter<String> genderadapterItems;
 
-        AutoCompleteTextView gender_auto = findViewById(R.id.gender_auto_complete_txt);
-        AutoCompleteTextView citizen_auto = findViewById(R.id.citizen_auto_complete_txt);
-        AutoCompleteTextView admission_auto = findViewById(R.id.admission_auto_complete_txt);
-        AutoCompleteTextView religion_auto = findViewById(R.id.rel_auto_complete_txt);
+        AutoCompleteTextView gender_auto = findViewById(R.id.idgender);
+        AutoCompleteTextView citizen_auto = findViewById(R.id.idcitizen);
+        AutoCompleteTextView admission_auto = findViewById(R.id.idcategoryofadmission);
+        AutoCompleteTextView religion_auto = findViewById(R.id.idreligion);
 
-        EditText datePickerob = findViewById(R.id.dob);
+        EditText datePickerob = findViewById(R.id.iddateofbirth);
         Calendar myCalendar = Calendar.getInstance();
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -101,6 +129,35 @@ public class FormFillup extends AppCompatActivity {
                 //item contain dropdown list data
                 item = parent.getItemAtPosition(position).toString();
 
+            }
+        });
+
+        /*
+        *  Code to insert data in database.
+        */
+        idSubmit = findViewById(R.id.idsubmit);
+        idStrudentName = findViewById(R.id.idstudentname);
+        idFatherName = findViewById(R.id.idfathername);
+        idMotherName = findViewById(R.id.idmothername);
+        currentTime = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:S").format(Calendar.getInstance().getTime());
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("Students");
+
+        idSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        databaseReference.child(currentTime).setValue(new Student(idStrudentName.getText().toString(),idFatherName.getText().toString(),idMotherName.getText().toString()));
+                        Toast.makeText(FormFillup.this, "Student data inserted", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(FormFillup.this, "ERROR: " + error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

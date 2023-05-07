@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "683564581229",
+    "project_id": "student-verification-project",
+    "storage_bucket": "student-verification-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683564581229:android:51723823409894d456da64",
+        "android_client_info": {
+          "package_name": "com.example.studentverification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "683564581229-g1vnifkbr6rt45hbkre2k05bigv5c5t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwfw5JQSkoGaYL4v8bZSTb89tbXwOUe34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "683564581229-g1vnifkbr6rt45hbkre2k05bigv5c5t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

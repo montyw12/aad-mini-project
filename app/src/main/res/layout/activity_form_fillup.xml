@@ -44,7 +44,7 @@
                 app:startIconDrawable="@drawable/id">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/sname"
+                    android:id="@+id/idstudentname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -61,7 +61,7 @@
                 app:startIconDrawable="@drawable/id">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fname"
+                    android:id="@+id/idfathername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -77,7 +77,7 @@
                 app:startIconDrawable="@drawable/id">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/mname"
+                    android:id="@+id/idmothername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -93,7 +93,7 @@
                 app:startIconDrawable="@drawable/number">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/aadhar_number"
+                    android:id="@+id/idstudentaadharnumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -110,7 +110,7 @@
                 app:startIconDrawable="@drawable/call">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/f_number"
+                    android:id="@+id/idfathermobilenumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -127,7 +127,7 @@
                 app:startIconDrawable="@drawable/address">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/address"
+                    android:id="@+id/idpermaneataddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -145,7 +145,7 @@
                 app:startIconDrawable="@drawable/person">
 
                 <AutoCompleteTextView
-                    android:id="@+id/citizen_auto_complete_txt"
+                    android:id="@+id/idcitizen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />
@@ -165,7 +165,7 @@
                 app:startIconDrawable="@drawable/person">
 
                 <AutoCompleteTextView
-                    android:id="@+id/gender_auto_complete_txt"
+                    android:id="@+id/idgender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />
@@ -185,7 +185,7 @@
                 app:startIconDrawable="@drawable/person">
 
                 <AutoCompleteTextView
-                    android:id="@+id/admission_auto_complete_txt"
+                    android:id="@+id/idcategoryofadmission"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />
@@ -203,7 +203,7 @@
                 app:startIconDrawable="@drawable/income">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/income"
+                    android:id="@+id/idparentannualincome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -220,7 +220,7 @@
                 app:startIconDrawable="@drawable/merit">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/merit"
+                    android:id="@+id/idtenthmeritrank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
@@ -237,7 +237,7 @@
                 app:startIconDrawable="@drawable/email">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/email"
+                    android:id="@+id/idemail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress" />
@@ -271,7 +271,7 @@
                 app:startIconDrawable="@drawable/dob">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/dob"
+                    android:id="@+id/iddateofbirth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:focusable="false"
@@ -291,7 +291,7 @@
                 app:startIconDrawable="@drawable/person">
 
                 <AutoCompleteTextView
-                    android:id="@+id/rel_auto_complete_txt"
+                    android:id="@+id/idreligion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none" />
@@ -299,6 +299,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
+                android:id="@+id/idsubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"

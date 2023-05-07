@@ -86,7 +86,11 @@
         android:id="@+id/cb00"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Collect all required documents and proccess next" />
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        android:text="Collect all documents and proccess next" />
 
     <RelativeLayout
         android:layout_width="match_parent"
