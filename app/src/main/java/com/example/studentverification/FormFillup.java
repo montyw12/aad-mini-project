@@ -21,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -29,19 +32,23 @@ public class FormFillup extends AppCompatActivity {
 
 
     /*
-    * References for inserting data in database
-    */
+     * References for inserting data in database
+     */
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    TextInputEditText idStrudentName, idFatherName, idMotherName;
+    TextInputEditText idStrudentName, idFatherName, idMotherName, idStudentAadharNumber, idFatherMobileNumber, idPermanentAddress, idParentsAnnualIncome, idtenthMeritRank, idEmailId, idStudentWhatsappNumber, idBirthDate;
+    AutoCompleteTextView idCitizen, idGender, idCategoryOfAdmission, idReligion;
     Button idSubmit;
-    String currentTime;
+    Student student;
+    String submitDateTime, studentName, fatherName, motherName, studentAadharNumber, fatherMobileNumber, permanentAddress, emailId, whatsappNumber, birthDate, citizen, gender, categoryOfAdmission, religion;
+    Double parentsAanualIncome;
+    Integer tenthMeritRank;
+
 
     /*
-    * Variable for dropdowns and datepicker
-    */
-    String[] spiner = {"Urban", "Rural"};
+     * Variable for dropdowns and datepicker
+     */ String[] spiner = {"Urban", "Rural"};
     String[] admission = {"Diploma", "BE", "Bcom", "BCA", "BTech"};
     String[] rel = {"Hindu", "Muslim", "Christi", "Judaism", "Sikhism", "Shuddhism"};
     String[] genders = {"Male", "Female", "other"};
@@ -53,9 +60,9 @@ public class FormFillup extends AppCompatActivity {
         setContentView(R.layout.activity_form_fillup);
 
         /*
-        *  Code to set idGender, idCitizen, idCategoryOfAdmission, idReligion dorpdowns,
-        *  and idDateOfBirth datpicker.
-        */
+         *  Code to set idGender, idCitizen, idCategoryOfAdmission, idReligion dorpdowns,
+         *  and idDateOfBirth datpicker.
+         */
         ArrayAdapter<String> genderadapterItems;
 
         AutoCompleteTextView gender_auto = findViewById(R.id.idgender);
@@ -75,7 +82,7 @@ public class FormFillup extends AppCompatActivity {
             }
 
             private void updateDate() {
-                String myFormat = "dd/MM/yy"; //put your date format in which you need to display
+                String myFormat = "yyyy-MM-dd"; //put your date format in which you need to display
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.ENGLISH);
 
                 datePickerob.setText(sdf.format(myCalendar.getTime()));
@@ -133,32 +140,113 @@ public class FormFillup extends AppCompatActivity {
         });
 
         /*
-        *  Code to insert data in database.
-        */
+         *  Code to insert data in database.
+         */
+
+
+        // Initializing objects of all input fields
         idSubmit = findViewById(R.id.idsubmit);
         idStrudentName = findViewById(R.id.idstudentname);
         idFatherName = findViewById(R.id.idfathername);
         idMotherName = findViewById(R.id.idmothername);
-        currentTime = new SimpleDateFormat("yyyy/MM/dd-HH:mm:ss:S").format(Calendar.getInstance().getTime());
+        idStudentAadharNumber = findViewById(R.id.idstudentaadharnumber);
+        idFatherMobileNumber = findViewById(R.id.idfathermobilenumber);
+        idPermanentAddress = findViewById(R.id.idpermaneataddress);
+        idParentsAnnualIncome = findViewById(R.id.idparentannualincome);
+        idtenthMeritRank = findViewById(R.id.idtenthmeritrank);
+        idEmailId = findViewById(R.id.idemail);
+        idStudentWhatsappNumber = findViewById(R.id.idstudentwhatsappnumber);
+        idBirthDate = findViewById(R.id.iddateofbirth);
+        idCitizen = findViewById(R.id.idcitizen);
+        idGender = findViewById(R.id.idgender);
+        idCategoryOfAdmission = findViewById(R.id.idcategoryofadmission);
+        idReligion = findViewById(R.id.idreligion);
+
+        // Initializing objects of firebase database
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference("Students");
 
+        // Set button's onClick event
         idSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                databaseReference.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        databaseReference.child(currentTime).setValue(new Student(idStrudentName.getText().toString(),idFatherName.getText().toString(),idMotherName.getText().toString()));
-                        Toast.makeText(FormFillup.this, "Student data inserted", Toast.LENGTH_SHORT).show();
-                    }
+                // Take inputted values from input fields
+                studentName = idStrudentName.getText().toString();
+                fatherName = idFatherName.getText().toString();
+                motherName = idMotherName.getText().toString();
+                studentAadharNumber = idStudentAadharNumber.getText().toString();
+                fatherMobileNumber = idFatherMobileNumber.getText().toString();
+                permanentAddress = idPermanentAddress.getText().toString();
+                parentsAanualIncome = Double.parseDouble(idParentsAnnualIncome.getText().toString());
+                tenthMeritRank = Integer.parseInt(idtenthMeritRank.getText().toString());
+                emailId = idEmailId.getText().toString();
+                whatsappNumber = idStudentWhatsappNumber.getText().toString();
+                birthDate = idBirthDate.getText().toString();
+                citizen = idCitizen.getText().toString();
+                gender = idGender.getText().toString();
+                categoryOfAdmission = idCategoryOfAdmission.getText().toString();
+                religion = idReligion.getText().toString();
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Toast.makeText(FormFillup.this, "ERROR: " + error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                // Initializing student object
+                student = new Student(studentName, fatherName, motherName, studentAadharNumber, fatherMobileNumber, permanentAddress, citizen, gender, categoryOfAdmission, emailId, whatsappNumber, birthDate, religion, parentsAanualIncome, tenthMeritRank);
+
+                // Call function that insert data in firebase database
+                insertDataInDatabase();
             }
         });
+    }
+
+    private void insertDataInDatabase() {
+        submitDateTime = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-S").format(Calendar.getInstance().getTime());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                databaseReference.child(submitDateTime).setValue(student);
+                insertDataInMySQL();
+                Toast.makeText(FormFillup.this, "Student form submitted", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(FormFillup.this, "ERROR: " + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void insertDataInMySQL() {
+        try {
+            String queryString;
+            queryString = "submit=submit";
+            queryString += "&student_name=" + URLEncoder.encode(studentName, "UTF-8");
+            queryString += "&father_name=" + URLEncoder.encode(fatherName, "UTF-8");
+            queryString += "&mother_name=" + URLEncoder.encode(motherName, "UTF-8");
+            queryString += "&student_aadhar_number=" + URLEncoder.encode(studentAadharNumber, "UTF-8");
+            queryString += "&father_mobile_number=" + URLEncoder.encode(fatherMobileNumber, "UTF-8");
+            queryString += "&permanent_address=" + URLEncoder.encode(permanentAddress, "UTF-8");
+            queryString += "&citizen=" + URLEncoder.encode(citizen, "UTF-8");
+            queryString += "&gender=" + URLEncoder.encode(String.valueOf(gender.charAt(0)), "UTF-8");
+            queryString += "&category_of_admission=" + URLEncoder.encode(categoryOfAdmission, "UTF-8");
+            queryString += "&parents_annual_income=" + URLEncoder.encode(parentsAanualIncome.toString(), "UTF-8");
+            queryString += "&tenth_merit_rank=" + URLEncoder.encode(tenthMeritRank.toString(), "UTF-8");
+            queryString += "&email_id=" + URLEncoder.encode(emailId, "UTF-8");
+            queryString += "&student_whatsapp_number=" + URLEncoder.encode(whatsappNumber, "UTF-8");
+            queryString += "&birth_date=" + URLEncoder.encode(birthDate, "UTF-8");
+            queryString += "&religion=" + URLEncoder.encode(religion, "UTF-8");
+            URL url = new URL("https://aadajp.000webhostapp.com/java/insert.php?" + queryString);
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        httpURLConnection.getResponseCode();
+                        httpURLConnection.disconnect();
+                    } catch (Exception e) {
+                    }
+                }
+            });
+            thread.start();
+        } catch (Exception e) {
+            Toast.makeText(this, "Error Message: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 }

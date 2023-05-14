@@ -18,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         assert ab != null;
         ab.hide();
         new Handler().postDelayed(() -> {
-            Intent i = new Intent(SplashScreen.this, Notice.class);
+            Intent i = new Intent(SplashScreen.this, CheckUserActivity.class);
             startActivity(i);
             finish();
         }, 750);
