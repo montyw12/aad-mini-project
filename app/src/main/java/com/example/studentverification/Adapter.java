@@ -38,11 +38,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
 
 
         holder.username.setText(model.getStudentName());
-        holder.merit.setText(model.getTenthMeritRank());
+        holder.merit.setText(model.getTenthMeritRank().toString());
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
 
