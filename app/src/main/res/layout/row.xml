@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginVertical="15sp">
+
+
+        <TextView
+            android:id="@+id/idusername"
+            android:layout_width="150sp"
+            android:layout_height="45sp"
+            android:text="Username: "
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/idmerit"
+            android:layout_width="150sp"
+            android:layout_height="45sp"
+            android:layout_toEndOf="@id/idusername"
+            android:text="123"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/idsubmit"
+            android:layout_width="150sp"
+            android:layout_height="45sp"
+            android:layout_below="@id/idmerit"
+            android:text="submit"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

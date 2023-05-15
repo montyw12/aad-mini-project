@@ -20,9 +20,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -190,19 +193,19 @@ public class FormFillup extends AppCompatActivity {
                 // Initializing student object
                 student = new Student(studentName, fatherName, motherName, studentAadharNumber, fatherMobileNumber, permanentAddress, citizen, gender, categoryOfAdmission, emailId, whatsappNumber, birthDate, religion, parentsAanualIncome, tenthMeritRank);
 
-                // Call function that insert data in firebase database
-                insertDataInDatabase();
+                // Call function that insert data in firebase and Mysql database
+                insertDataInFirebase();
+                insertDataInMySQL();
             }
         });
     }
 
-    private void insertDataInDatabase() {
+    private void insertDataInFirebase() {
         submitDateTime = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-S").format(Calendar.getInstance().getTime());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 databaseReference.child(submitDateTime).setValue(student);
-                insertDataInMySQL();
                 Toast.makeText(FormFillup.this, "Student form submitted", Toast.LENGTH_SHORT).show();
             }
 
@@ -232,19 +235,23 @@ public class FormFillup extends AppCompatActivity {
             queryString += "&student_whatsapp_number=" + URLEncoder.encode(whatsappNumber, "UTF-8");
             queryString += "&birth_date=" + URLEncoder.encode(birthDate, "UTF-8");
             queryString += "&religion=" + URLEncoder.encode(religion, "UTF-8");
-            URL url = new URL("https://aadajp.000webhostapp.com/java/insert.php?" + queryString);
-            Thread thread = new Thread(new Runnable() {
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .url("https://aadajp.000webhostapp.com/java/insert.php?" + queryString)
+                    .build();
+            client.newCall(request).enqueue(new Callback() {
                 @Override
-                public void run() {
-                    try {
-                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-                        httpURLConnection.getResponseCode();
-                        httpURLConnection.disconnect();
-                    } catch (Exception e) {
+                public void onFailure(Request call, IOException e) {
+                    e.getMessage();
+                }
+
+                @Override
+                public void onResponse(final Response response) throws IOException {
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Unexpected code " + response);
                     }
                 }
             });
-            thread.start();
         } catch (Exception e) {
             Toast.makeText(this, "Error Message: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
