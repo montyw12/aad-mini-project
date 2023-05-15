@@ -42,6 +42,7 @@ public class ReadData extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Model model = dataSnapshot.getValue(Model.class);
+                    model.setsId(dataSnapshot.getKey());
                     list.add(model);
                 }
                 adapter.notifyDataSetChanged();

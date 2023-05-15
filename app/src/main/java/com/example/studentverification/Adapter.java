@@ -42,10 +42,26 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Holder> {
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), EditData.class);
+                i.putExtra("student_name", model.getStudentName());
+                i.putExtra("father_name", model.getFatherName());
+                i.putExtra("mother_name", model.getMotherName());
+                i.putExtra("student_aadhar_number", model.getStudentAadahrNumber());
+                i.putExtra("father_mobile_number", model.getFatherMobileNumber());
+                i.putExtra("permanent_address", model.getPermanentAddress());
+                i.putExtra("citizen", model.getCitizen());
+                i.putExtra("gender", model.getGender());
+                i.putExtra("category_of_admission", model.getCategoryOfAdmission());
+                i.putExtra("parents_annual_income", model.getParentsAnnualIncome());
+                i.putExtra("tenth_merit_rank", model.getTenthMeritRank());
+                i.putExtra("email_id", model.getEmailId());
+                i.putExtra("student_whatsapp_number", model.getStudentWhatsappNumber());
+                i.putExtra("birth_date", model.getBirthDate());
+                i.putExtra("religion", model.getReligion());
+                i.putExtra("sId", model.getsId());
+                view.getContext().startActivity(i);
             }
         });
-
-
     }
 
     @Override

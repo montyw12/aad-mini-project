@@ -6,6 +6,8 @@ public class Model {
     private Double parentsAnnualIncome;
     private Integer tenthMeritRank;
 
+    private String sId;
+
     /*public Model(String studentName, String fatherName, String motherName, String studentAadahrNumber, String fatherMobileNumber, String permanentAddress, String citizen, String gender, String categoryOfAdmission, String emailId, String studentWhatsappNumber, String birthDate, String religion, Double parentsAnnualIncome, Integer tenthMeritRank) {
         this.studentName = studentName;
         this.fatherName = fatherName;
@@ -142,5 +144,13 @@ public class Model {
 
     public void setTenthMeritRank(Integer tenthMeritRank) {
         this.tenthMeritRank = tenthMeritRank;
+    }
+
+    public String getsId() {
+        return sId;
+    }
+
+    public void setsId(String sId) {
+        this.sId = sId;
     }
 }

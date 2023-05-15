@@ -7,33 +7,45 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:gravity="center_horizontal"
-        android:layout_marginVertical="15sp">
+        android:background="@drawable/border"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginVertical="10sp">
 
 
         <TextView
             android:id="@+id/idusername"
-            android:layout_width="150sp"
-            android:layout_height="45sp"
+            android:layout_width="140sp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="12dp"
             android:text="Username: "
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/idmerit"
-            android:layout_width="150sp"
-            android:layout_height="45sp"
-            android:layout_toEndOf="@id/idusername"
+            android:layout_width="78dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="148dp"
             android:text="123"
             android:textSize="24sp" />
 
         <Button
             android:id="@+id/idsubmit"
-            android:layout_width="150sp"
-            android:layout_height="45sp"
-            android:layout_below="@id/idmerit"
-            android:text="submit"
-            android:textSize="24sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="256dp"
+            android:layout_marginTop="16dp"
+            android:text="edit"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
