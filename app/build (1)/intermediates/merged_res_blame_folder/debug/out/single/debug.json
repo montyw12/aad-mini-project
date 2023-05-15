@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_address.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/address.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_arrow.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/arrow.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_id.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/id.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.studentverification.app-pngs-28:/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/xml_backup_rules.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/layout_activity_form_fillup.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/layout/activity_form_fillup.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_person.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/person.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_dob.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/dob.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/layout_activity_main.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_call.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/call.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/layout_activity_splash_screen.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/layout/activity_splash_screen.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_logo.png.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/logo.png"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_email.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/email.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_border.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/border.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_merit.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/merit.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/layout_list_item.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/layout/list_item.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_number.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/number.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-anydpi-v33/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/layout_activity_notice.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/layout/activity_notice.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.studentverification.app-main-35:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_splashscreen.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/splashscreen.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.studentverification.app-merged_res-33:/drawable_income.xml.flat",
+        "source": "com.example.studentverification.app-main-35:/drawable/income.xml"
+    }
+]
