@@ -196,6 +196,7 @@ public class FormFillup extends AppCompatActivity {
                 // Call function that insert data in firebase and Mysql database
                 insertDataInFirebase();
                 insertDataInMySQL();
+                Toast.makeText(FormFillup.this, "Student form submitted", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -206,7 +207,6 @@ public class FormFillup extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 databaseReference.child(submitDateTime).setValue(student);
-                Toast.makeText(FormFillup.this, "Student form submitted", Toast.LENGTH_SHORT).show();
             }
 
             @Override

@@ -223,13 +223,16 @@ public class EditData extends AppCompatActivity {
 
                 // Call function that insert data in firebase and Mysql database
                 insertDataInFirebase();
+                Toast.makeText(EditData.this, "Student data updated", Toast.LENGTH_LONG).show();
             }
         });
 
         idDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 deleteDataInFirebase();
+                Toast.makeText(EditData.this, "Student data deleted", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -240,7 +243,6 @@ public class EditData extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 databaseReference.child(submitDateTime).setValue(student);
-                Toast.makeText(EditData.this, "Student data updated", Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -255,7 +257,6 @@ public class EditData extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 databaseReference.child(submitDateTime).setValue(null);
-                Toast.makeText(EditData.this, "Student data deleted", Toast.LENGTH_LONG).show();
             }
 
             @Override

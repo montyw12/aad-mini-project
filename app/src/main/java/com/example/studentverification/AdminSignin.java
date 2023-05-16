@@ -26,7 +26,7 @@ public class AdminSignin extends AppCompatActivity {
                 String userNameStr = userName.getText().toString();
                 String userPasswordStr = userPassword.getText().toString();
                 if(userNameStr.equals("admin")){
-                    if(userPasswordStr.equals("admin#123 ")){
+                    if(userPasswordStr.equals("admin#123")){
                         startActivity(new Intent(AdminSignin.this, AdminHome.class));
                     } else {
                         Toast.makeText(AdminSignin.this, "Invalid Password", Toast.LENGTH_LONG).show();
